@@ -1,0 +1,29 @@
+@mixin card($background-color, $text-color) {
+    .card {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: $background-color;
+        color: $color;
+
+        .user-profile {
+            display: flex;
+            flex-direction: row;
+            gap: .9em;
+
+            img {
+                border-radius: 50%;
+            }
+
+            .user-details {
+                display: flex;
+                flex-direction: column;
+                gap: .3em;
+
+                .name {
+                    
+                }
+            }
+        }
+    }
+}
