@@ -1,0 +1,109 @@
+@import "globals";
+@import "variables";
+@import "mixins";
+
+body {
+    font-size: $paragraph-font-size;
+    background-color: $clr-light-grayish-blue;
+    padding: 5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: calc(100vh - 1px);
+
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .card {
+            padding: 2rem 2rem;
+            border-radius: 3%;
+            max-width: 1440px;
+
+            .user-profile {
+                img {
+                    height: 28px;
+                    width: auto;
+                    border-radius: 50%;
+                }
+                .user-details {
+                    .name {
+                        letter-spacing: .05rem;
+                        font-weight: $medium-weight;
+                        color: $clr-light-grayish-blue;
+                        font-size: .7rem;
+                    }
+
+                    .education {
+                        font-weight: $medium-weight;
+                        letter-spacing: .04rem;
+                        font-size: .6rem;
+                    }
+                }   
+            }
+
+            .short-review {
+                font-weight: $semibold-weight;
+                font-size: 1rem;
+                letter-spacing: .05rem;
+                padding-right: .75rem;
+            }
+
+            .long-review {
+                line-height: 1.1rem;
+                padding-right: .25rem;
+                font-weight: $medium-weight;
+            }
+        }
+
+        .card1 {
+            background-image: url("../images/bg-pattern-quotation.svg");
+            background-repeat: no-repeat; 
+            background-position: 90% 0%;
+            grid-area: card1;
+            @include card($clr-moderate-violet, $clr-white, $clr-light-grayish-blue, $clr-light-grayish-blue-with-50opacity, $clr-light-grayish-blue-with-70opacity, $clr-light-grayish-blue-with-50opacity);
+        }
+
+        .card2 {
+            grid-area: card2;
+            @include card($clr-very-dark-grayish-blue, $clr-white, $clr-light-grayish-blue, $clr-light-grayish-blue-with-50opacity, $clr-light-grayish-blue-with-70opacity, $clr-light-grayish-blue-with-50opacity);
+        }
+
+        .card3 {
+            grid-area: card3;
+            @include card($clr-white, $clr-very-dark-grayish-blue, $clr-very-dark-grayish-blue, $clr-very-dark-grayish-blue-with-50opacity, $clr-very-dark-grayish-blue-with-70opacity, $clr-white);
+        }
+
+        .card4 {
+            grid-area: card4;
+            @include card($clr-very-dark-blackish-blue, $clr-white, $clr-light-grayish-blue, $clr-light-grayish-blue-with-50opacity, $clr-light-grayish-blue-with-70opacity, $clr-moderate-violet);
+        }
+
+        .card5 {
+            grid-area: card5;
+            @include card($clr-white, $clr-very-dark-grayish-blue, $clr-very-dark-grayish-blue, $clr-very-dark-grayish-blue-with-50opacity, $clr-very-dark-grayish-blue-with-70opacity, $clr-white);
+        }
+    }
+}
+
+@media screen and (min-width: $desktop-width) {
+    body {
+        padding: 8rem 10rem;
+
+        main {
+            display: grid;
+            height: inherit;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-areas: 
+                "card1 card1 card2 card5"
+                "card3 card4 card4 card5";
+            gap: 2rem;
+        }
+
+        .card {
+            box-shadow: 0 1rem 2rem .5rem #dedede;
+        }
+    }
+}
